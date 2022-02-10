@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
+import styleImport, { VantResolve } from 'vite-plugin-style-import'
 import { resolve } from 'path'
 
 // https://cn.vitejs.dev/guide/
@@ -12,6 +13,10 @@ export default defineConfig({
       dts: 'src/auto-imports.d.ts',
       // 使用vue、vue-router、vueuse时可以不用import引入api,直接使用即可
       imports: ['vue', 'vue-router', '@vueuse/core']
+    }),
+    // 处理vant按需引入组件
+    styleImport({
+      resolves: [VantResolve()]
     })
   ],
   base: './', // 配置打包路径
@@ -22,9 +27,9 @@ export default defineConfig({
       '@': resolve(__dirname, 'src') // 设置 `@` 指向 `src` 目录
     }
   },
-  // 将全局样式文件全局注入到项目中
   css: {
     preprocessorOptions: {
+       // 将全局样式文件全局注入到项目中
       less: {
         additionalData: '@import "@/assets/css/main.less";'
       }

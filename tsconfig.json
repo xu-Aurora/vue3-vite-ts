@@ -9,6 +9,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowJs": true,
+    "noEmit": true,                        // 不生成输出文件
     "lib": ["esnext", "dom"],
     "types": ["vite/client","@types/node"],
     "baseUrl": "./",
@@ -17,5 +18,5 @@
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["vite.config.ts"]
+  "exclude": ["node_modules"]
 }
