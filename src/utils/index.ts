@@ -1,6 +1,7 @@
 'use strict'
 
-import dayjs from 'dayjs'
+import dayjs from 'dayjs' // 时间格式化
+import BigNumber from 'bignumber.js'  // 处理精度丢失
 
 /**
  * 判断值是否为空
@@ -59,10 +60,30 @@ const browserInfo = {
   isPhone: Boolean(/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) // 手机端
 }
 
+// 加法
+function plus(x: number, y: number) {
+  return new BigNumber(x).plus(y)
+}
+// 减法
+function minus(x: number, y: number) {
+  return new BigNumber(x).minus(y)
+}
+// 乘法
+function multipliedBy(x: number, y: number) {
+  return new BigNumber(x).multipliedBy(y)
+}
+// 除法
+function dividedBy(x: number, y: number) {
+  return new BigNumber(x).dividedBy(y)
+}
 
 export {
   isEmpty,
   formatPrice,
   formatDate,
-  browserInfo
+  browserInfo,
+  plus,
+  minus,
+  multipliedBy,
+  dividedBy
 }

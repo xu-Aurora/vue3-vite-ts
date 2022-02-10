@@ -17,6 +17,8 @@ module.exports = {
   },
   globals: {
     apiUrl: true,
+    useRouter: true,
+    useRoute: true,
   },
   plugins: ['vue', '@typescript-eslint', 'import'],
   rules: {

@@ -11,7 +11,6 @@
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import { useRouter } from 'vue-router'
 import { formatDate } from '@/utils'
 
 export default defineComponent({
